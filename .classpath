@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="sources"/>
 	<classpathentry kind="src" path="libraries"/>
+	<classpathentry kind="src" path="uml"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="libraries/mysql-connector-java-5.1.22-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>

@@ -11,7 +11,7 @@ public class Main {
 		
 		MySQL db = new MySQL();
 		
-		String query = "SELECT * FROM porno";
+		String query = "SELECT * FROM inventores";
 		
 		ResultSet rs = db.consulta(query);
 		
