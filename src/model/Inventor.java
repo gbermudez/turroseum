@@ -1,0 +1,32 @@
+package model;
+
+public class Inventor {
+	
+	private String nombre;
+	private int anioN;
+	private String lugarN;
+	
+	public Inventor() {
+		
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public int getAnioN() {
+		return anioN;
+	}
+	public void setAnioN(int anioN) {
+		this.anioN = anioN;
+	}
+	public String getLugarN() {
+		return lugarN;
+	}
+	public void setLugarN(String lugarN) {
+		this.lugarN = lugarN;
+	}
+
+}
