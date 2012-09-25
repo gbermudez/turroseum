@@ -25,7 +25,7 @@ Connection conexion = null;
 			//Conectando con los datos de conexión
 			this.conexion = DriverManager.getConnection(url,user,pass); 
 	      
-			System.out.println("Se ha conectado con exito!!!");
+			//System.out.println("Se ha conectado con exito!!!");
 	 
 	    } 
 		catch (SQLException ex) {

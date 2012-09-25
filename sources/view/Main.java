@@ -11,12 +11,18 @@ public class Main {
 		
 		MySQL db = new MySQL();
 		
+		
 		String query = "SELECT * FROM inventores";
+		ResultSet inventores = db.consulta(query);
+		ResultSet total;
 		
-		ResultSet rs = db.consulta(query);
+		while (inventores.next()) {
+			
+			query = "SELECT count(*) FROM relacion_invento_inventor WHERE id_inventor = " + inventores.getInt("id");
+			total = db.consulta(query);
+			total.next();
+			System.out.println("El inventor " + inventores.getString("nombre") + " tiene " + total.getInt(1) + " inventos");
 		
-		while(rs.next()) {
-			System.out.println(rs.getInt("id") + " " + rs.getString("nombre"));
 		}
 		
 		db.cerrar();
