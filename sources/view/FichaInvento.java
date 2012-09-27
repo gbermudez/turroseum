@@ -35,9 +35,9 @@ public class FichaInvento extends JDialog {
 		lblName.setBounds(12, 71, 388, 15);
 		getContentPane().add(lblName);
 		
-		Periodo pe = invento.getPeriodo();
+		//Periodo pe = invento.getPeriodo();
 		
-		JLabel lblPeriodo = new JLabel(pe.getNombre());
+		JLabel lblPeriodo = new JLabel("pe.getNombre()");
 		lblPeriodo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPeriodo.setForeground(Color.BLACK);
 		lblPeriodo.setBounds(12, 109, 388, 15);
@@ -65,6 +65,6 @@ public class FichaInvento extends JDialog {
 		getContentPane().add(label);
 		contentPanel.setLayout(null);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		
+		setVisible(true);
 	}
 }

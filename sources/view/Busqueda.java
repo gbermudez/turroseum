@@ -131,6 +131,7 @@ public class Busqueda extends JFrame {
 				Invento i = new Invento();
 				i.setNombre(inventos.getString("nombre"));
 				i.setId(inventos.getInt("id"));
+				i.setDescripcion(inventos.getString("descripcion"));
 				comboBox.addItem(i);
 			}
 			
