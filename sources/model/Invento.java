@@ -8,6 +8,7 @@ public class Invento {
 	private Inventor[] inventores;
 	private String descripcion;
 	private boolean isMachine;
+	private int periodo;
 	private Parte[] partes;
 	private PrincipioCientifico[] principios;
 	
@@ -50,6 +51,12 @@ public class Invento {
 	}
 	public void setMachine(boolean isMachine) {
 		this.isMachine = isMachine;
+	}
+	public int getPeriodo() {
+		return periodo;
+	}
+	public void setPeriodo(int periodo) {
+		this.periodo = periodo;
 	}
 	public Parte[] getPartes() {
 		return partes;
