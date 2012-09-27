@@ -95,7 +95,7 @@ public class Busqueda extends JFrame {
 					new FichaInventor((Inventor)comboBox.getSelectedItem());
 				}
 				else {
-					System.out.println("Invento "+comboBox.getSelectedItem());
+					new FichaInvento((Invento)comboBox.getSelectedItem());
 				}
 			}
 		});
@@ -119,6 +119,8 @@ public class Busqueda extends JFrame {
 				Inventor i = new Inventor();
 				i.setNombre(inventores.getString("nombre"));
 				i.setId(inventores.getInt("id"));
+				i.setAnioN(inventores.getInt("anion"));
+				i.setLugarN(inventores.getString("lugarn"));
 				comboBox.addItem(i);
 			}
 		}
