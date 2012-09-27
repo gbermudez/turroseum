@@ -63,6 +63,9 @@ public class Invento {
 	public void setPrincipios(PrincipioCientifico[] principios) {
 		this.principios = principios;
 	}
+	public String toString() {
+		return nombre;
+	}
 	
 
 }

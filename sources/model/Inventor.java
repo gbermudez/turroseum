@@ -2,6 +2,7 @@ package model;
 
 public class Inventor {
 	
+	private int id;
 	private String nombre;
 	private int anioN;
 	private String lugarN;
@@ -9,7 +10,12 @@ public class Inventor {
 	public Inventor() {
 		
 	}
-	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNombre() {
 		return nombre;
 	}
@@ -27,6 +33,9 @@ public class Inventor {
 	}
 	public void setLugarN(String lugarN) {
 		this.lugarN = lugarN;
+	}
+	public String toString() {
+		return nombre;
 	}
 
 }

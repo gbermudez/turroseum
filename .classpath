@@ -4,6 +4,6 @@
 	<classpathentry kind="src" path="libraries"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="libraries/mysql-connector-java-5.1.22-bin.jar"/>
-	<classpathentry kind="lib" path="libraries/swingx-all-1.6.4-sources.jar"/>
+	<classpathentry kind="lib" path="libraries/swingx-1.6.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
