@@ -97,9 +97,14 @@ public class Busqueda extends JFrame {
 				}
 				else {
 					try {
-						new FichaInvento((Invento)comboBox.getSelectedItem());
+						Invento inve = (Invento) comboBox.getSelectedItem();
+						if (inve.isMachine()) {
+							new FichaMaquina(inve);
+						}
+						else {
+							new FichaInvento((Invento)comboBox.getSelectedItem());
+						}
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
@@ -139,6 +144,7 @@ public class Busqueda extends JFrame {
 				i.setId(inventos.getInt("id"));
 				i.setPeriodo(handler.getPeriodo(inventos.getInt("periodo")));
 				i.setDescripcion(inventos.getString("descripcion"));
+				i.setMachine(inventos.getBoolean("machine"));
 				comboBox.addItem(i);
 			}
 			

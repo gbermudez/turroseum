@@ -1,11 +1,16 @@
 package model;
 
+import java.awt.Image;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 
+import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
 
 import com.mysql.jdbc.Connection;
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
@@ -154,6 +159,66 @@ public class SQLHandler {
 		s.setInt(3, mas);
 		ResultSet rs = s.executeQuery();
 		return rs;	
+	}
+	public ArrayList<Parte> getPartes(int id) throws SQLException {
+		ArrayList<Parte> partes = new ArrayList<Parte>();
+		
+		String query = "SELECT * FROM parte_invento WHERE invento = ?";
+		PreparedStatement s = this.con.prepareStatement(query);
+		s.setInt(1, id);
+		ResultSet rs = s.executeQuery();
+		ResultSet rs2;
+		while (rs.next()) {
+			query = "SELECT * FROM partes WHERE id = "+rs.getInt(1);
+			s = this.con.prepareStatement(query);
+			rs2 = s.executeQuery();
+			while (rs2.next()) {
+				Parte p = new Parte();
+				p.setId(rs2.getInt("id"));
+				p.setNombre(rs2.getString("nombre"));
+				p.setDescripcion(rs2.getString("descripcion"));
+				partes.add(p);
+			}
+		}
+		return partes;
+	}
+	
+	public ArrayList<Principio> getPrincipios(int id) throws SQLException {
+		ArrayList<Principio> principios = new ArrayList<Principio>();
+		
+		String query = "SELECT * FROM principio_invento WHERE invento = ?";
+		PreparedStatement s = this.con.prepareStatement(query);
+		s.setInt(1, id);
+		ResultSet rs = s.executeQuery();
+		ResultSet rs2;
+		while (rs.next()) {
+			query = "SELECT * FROM principios WHERE id = "+rs.getInt(1);
+			s = this.con.prepareStatement(query);
+			rs2 = s.executeQuery();
+			while (rs2.next()) {
+				Principio p = new Principio();
+				p.setId(rs2.getInt("id"));
+				p.setNombre(rs2.getString("nombre"));
+				p.setDescripcion(rs2.getString("descripcion"));
+				p.setImagen(rs2.getBytes("imagen"));
+				principios.add(p);
+			}
+		}
+		return principios;
+	}
+	
+	public ImageIcon getImagen(int id) throws SQLException, IOException {
+		String query = "SELECT * FROM principios WHERE id = ?";
+		PreparedStatement s = this.con.prepareStatement(query);
+		s.setInt(1, id);
+		ResultSet rs = s.executeQuery();
+		rs.next();
+		Image imagen;
+		Blob img = rs.getBlob("imagen");
+        imagen = javax.imageio.ImageIO.read(img.getBinaryStream());
+        ImageIcon image = new ImageIcon(imagen);
+        return image;
+		
 	}
 	
 	

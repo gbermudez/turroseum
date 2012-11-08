@@ -112,20 +112,20 @@ public class FichaInvento extends JDialog {
 		btnVotar.setBounds(12, 328, 80, 25);
 		getContentPane().add(btnVotar);
 		
-		JButton btnRelacionados = new JButton("Similares");
+		JButton btnRelacionados = new JButton("Contemporaneos");
 		btnRelacionados.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
 				try {
-					new InventosSimilares(invento);
+					new InventosContemporaneos(invento);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
 		});
-		btnRelacionados.setBounds(100, 328, 107, 25);
+		btnRelacionados.setBounds(100, 328, 165, 25);
 		getContentPane().add(btnRelacionados);
 		contentPanel.setLayout(null);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

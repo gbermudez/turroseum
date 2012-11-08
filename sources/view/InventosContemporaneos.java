@@ -30,11 +30,11 @@ import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import java.awt.Window.Type;
 
-public class InventosSimilares extends JDialog {
+public class InventosContemporaneos extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
-	public InventosSimilares(final Invento invento) throws SQLException {
+	public InventosContemporaneos(final Invento invento) throws SQLException {
 		setResizable(false);
 		setModal(true);
 		
@@ -45,7 +45,7 @@ public class InventosSimilares extends JDialog {
 		getContentPane().setLayout(null);
 		final JComboBox comboBox = new JComboBox();
 		comboBox.removeAll();
-		JLabel lblInvento = new JLabel("INVENTOS SIMILARES");
+		JLabel lblInvento = new JLabel("INVENTOS CONTEMPORANEOS");
 		lblInvento.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInvento.setFont(new Font("Dialog", Font.BOLD, 20));
 		lblInvento.setBounds(12, 12, 388, 31);

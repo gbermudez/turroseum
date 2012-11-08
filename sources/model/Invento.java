@@ -10,7 +10,7 @@ public class Invento {
 	private boolean isMachine;
 	private Periodo periodo;
 	private Parte[] partes;
-	private PrincipioCientifico[] principios;
+	private Principio[] principios;
 	
 	public Invento() {
 		
@@ -64,10 +64,10 @@ public class Invento {
 	public void setPartes(Parte[] partes) {
 		this.partes = partes;
 	}
-	public PrincipioCientifico[] getPrincipios() {
+	public Principio[] getPrincipios() {
 		return principios;
 	}
-	public void setPrincipios(PrincipioCientifico[] principios) {
+	public void setPrincipios(Principio[] principios) {
 		this.principios = principios;
 	}
 	public String toString() {

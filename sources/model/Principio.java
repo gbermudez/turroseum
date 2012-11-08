@@ -1,13 +1,13 @@
 package model;
 
-public class PrincipioCientifico {
+public class Principio {
 	
 	private int id;
 	private String nombre;
 	private byte[] imagen;
 	private String descripcion;
 	
-	public PrincipioCientifico() {
+	public Principio() {
 		
 	}
 	
@@ -34,6 +34,9 @@ public class PrincipioCientifico {
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+	public String toString() {
+		return nombre;
 	}
 	
 }
