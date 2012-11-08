@@ -133,4 +133,28 @@ public class SQLHandler {
 		int rs = s.executeUpdate();
 	}
 	
+	public ResultSet getInventosSimilares(int periodo, int id) throws SQLException {
+
+		String query = "SELECT * FROM inventos WHERE periodo = ? AND id != ?";
+		PreparedStatement s = this.con.prepareStatement(query);
+		s.setInt(1, periodo);
+		s.setInt(2, id);
+		ResultSet rs = s.executeQuery();
+		return rs;
+		
+	}
+	
+	public ResultSet getInventoresContemporaneos(int id, int anio) throws SQLException {
+		int menos = anio-10;
+		int mas = anio+10;
+		String query = "SELECT * FROM inventores WHERE id != ? AND anioI BETWEEN ? AND ?";
+		PreparedStatement s = this.con.prepareStatement(query);
+		s.setInt(1, id);
+		s.setInt(2, menos);
+		s.setInt(3, mas);
+		ResultSet rs = s.executeQuery();
+		return rs;	
+	}
+	
+	
 }

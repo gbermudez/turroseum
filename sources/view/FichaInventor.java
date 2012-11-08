@@ -13,13 +13,16 @@ import javax.swing.border.EmptyBorder;
 
 import model.Inventor;
 import java.awt.Dialog.ModalityType;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 
 public class FichaInventor extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
 	
-	public FichaInventor(Inventor inventor) {
+	public FichaInventor(final Inventor inventor) {
 		setModal(true);
 		setBounds(100, 100, 437, 288);
 		
@@ -64,6 +67,17 @@ public class FichaInventor extends JDialog {
 		getContentPane().add(label);
 		
 		JButton btnNewButton = new JButton("Inventores Contemporaneos");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					new InventoresContemporaneos(inventor);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnNewButton.setBounds(83, 200, 246, 25);
 		getContentPane().add(btnNewButton);
 		
