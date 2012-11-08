@@ -9,6 +9,10 @@ public class Main {
 	
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		
+		
+		AltaInventor a = new AltaInventor();
+		a.setVisible(true);
+		/*
 		MySQL db = new MySQL();
 		
 		
@@ -27,7 +31,7 @@ public class Main {
 		
 		db.cerrar();
 		
-		
+		*/
 	}
 
 }

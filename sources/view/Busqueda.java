@@ -20,6 +20,7 @@ import javax.swing.JRadioButton;
 
 import model.Invento;
 import model.Inventor;
+import model.SQLHandler;
 
 import org.jdesktop.swingx.autocomplete.*;
 
@@ -95,7 +96,12 @@ public class Busqueda extends JFrame {
 					new FichaInventor((Inventor)comboBox.getSelectedItem());
 				}
 				else {
-					new FichaInvento((Invento)comboBox.getSelectedItem());
+					try {
+						new FichaInvento((Invento)comboBox.getSelectedItem());
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 		});
@@ -110,27 +116,28 @@ public class Busqueda extends JFrame {
 
 	private void cargarCombo(JComboBox comboBox, String tipo) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		comboBox.removeAllItems();
-		MySQL db = new MySQL();
+		SQLHandler handler = new SQLHandler();
+		
+		
 		
 		if (tipo == "inventor") {
-			String query = "SELECT * FROM inventores";
-			ResultSet inventores = db.consulta(query);
+			ResultSet inventores = handler.getInventor(null, true);
 			while (inventores.next()) {
 				Inventor i = new Inventor();
 				i.setNombre(inventores.getString("nombre"));
 				i.setId(inventores.getInt("id"));
-				i.setAnioN(inventores.getInt("anion"));
-				i.setLugarN(inventores.getString("lugarn"));
+				i.setAnioN(inventores.getInt("anioI"));
+				i.setLugarN(inventores.getString("lugarN"));
 				comboBox.addItem(i);
 			}
 		}
 		else {
-			String query = "SELECT * FROM inventos";
-			ResultSet inventos = db.consulta(query);
+			ResultSet inventos = handler.getInvento(null, true);
 			while (inventos.next()) {
 				Invento i = new Invento();
 				i.setNombre(inventos.getString("nombre"));
 				i.setId(inventos.getInt("id"));
+				i.setPeriodo(handler.getPeriodo(inventos.getInt("periodo")));
 				i.setDescripcion(inventos.getString("descripcion"));
 				comboBox.addItem(i);
 			}
@@ -138,8 +145,6 @@ public class Busqueda extends JFrame {
 		}
 		
 		
-		
-		db.cerrar();
 		
 		
 	}

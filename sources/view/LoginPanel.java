@@ -19,28 +19,19 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import javax.swing.JPasswordField;
+import java.awt.Color;
 
 public class LoginPanel extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtUsuario;
 	private JPasswordField pwdPassword;
+	private JLabel errorTxt = new JLabel("");
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LoginPanel frame = new LoginPanel();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
@@ -48,7 +39,7 @@ public class LoginPanel extends JFrame {
 	public LoginPanel() {
 		setTitle("Turroseum 1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 454, 215);
+		setBounds(100, 100, 454, 220);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
@@ -56,7 +47,7 @@ public class LoginPanel extends JFrame {
 		
 		JLabel lblAdministracion = new JLabel("Administracion");
 		lblAdministracion.setFont(new Font("Dialog", Font.BOLD, 20));
-		lblAdministracion.setBounds(131, 22, 196, 15);
+		lblAdministracion.setBounds(131, 12, 196, 15);
 		contentPane.add(lblAdministracion);
 		
 		txtUsuario = new JTextField();
@@ -67,9 +58,12 @@ public class LoginPanel extends JFrame {
 				
 			}
 		});
-		
+
+		errorTxt.setForeground(Color.RED);
+		errorTxt.setBounds(68, 138, 352, 15);
+		contentPane.add(errorTxt);
 		txtUsuario.setText("Usuario");
-		txtUsuario.setBounds(144, 62, 152, 19);
+		txtUsuario.setBounds(142, 40, 152, 19);
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
@@ -79,14 +73,17 @@ public class LoginPanel extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				SQLHandler handler = new SQLHandler();
 				try {
-					handler.loguear(txtUsuario.getText(), pwdPassword.getText());
+					// chequeo usuario y pass si esta mal seteo lbl.
+					if (!handler.loguear(txtUsuario.getText(), pwdPassword.getText())) {
+						errorTxt.setText("Error en el usuario o password ingresado");
+					}
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
 		});
-		btnEntrar.setBounds(178, 136, 97, 25);
+		btnEntrar.setBounds(175, 102, 97, 25);
 		contentPane.add(btnEntrar);
 		
 		pwdPassword = new JPasswordField("pass");
@@ -99,11 +96,12 @@ public class LoginPanel extends JFrame {
 			}
 		});
 		pwdPassword.setText("password");
-		pwdPassword.setBounds(143, 93, 153, 19);
+		pwdPassword.setBounds(141, 71, 153, 19);
 		contentPane.add(pwdPassword);
 		
 		JLabel label = new JLabel("Turrogrammers Inc.");
 		label.setBounds(305, 165, 147, 23);
 		contentPane.add(label);
+		
 	}
 }
