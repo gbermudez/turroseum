@@ -220,6 +220,43 @@ public class SQLHandler {
         return image;
 		
 	}
+
+	public ArrayList<Invento> getMaquinasRelacionadas(int id) throws SQLException {
+		ArrayList<Invento> inventos = new ArrayList<Invento>();
+		String query = "SELECT * FROM principio_invento WHERE invento = ?";
+		PreparedStatement s = this.con.prepareStatement(query);
+		s.setInt(1, id);
+		ResultSet rs = s.executeQuery();
+		
+		ResultSet rs2 = null;
+		
+		
+		while (rs.next()) {
+			query = "SELECT * FROM principio_invento WHERE principio = "+rs.getInt("principio");
+			s = this.con.prepareStatement(query);
+			rs2 = s.executeQuery();
+		}
+		ResultSet rs3 = null;
+		
+		while(rs2.next()) {
+			query = "SELECT * FROM inventos WHERE id = "+rs2.getInt("invento");
+			s = this.con.prepareStatement(query);
+			rs3 = s.executeQuery();
+			while (rs3.next()) {
+				if (rs3.getInt("id") != id) {
+					Invento i = new Invento();
+					i.setId(rs3.getInt("id"));
+					i.setNombre(rs3.getString("nombre"));
+					i.setDescripcion(rs3.getString("descripcion"));
+					i.setPeriodo(this.getPeriodo(rs3.getInt("periodo")));
+					inventos.add(i);
+				}
+			}
+		}
+		
+		return inventos;
+		}
+	
 	
 	
 }

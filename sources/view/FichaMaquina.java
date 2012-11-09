@@ -131,20 +131,20 @@ public class FichaMaquina extends JDialog {
 		btnVotar.setBounds(12, 471, 80, 25);
 		getContentPane().add(btnVotar);
 		
-		JButton btnRelacionados = new JButton("Similares");
+		JButton btnRelacionados = new JButton("Relacionados");
 		btnRelacionados.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
 				try {
-					new InventosContemporaneos(invento);
+					new MaquinasRelacionadas(invento);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
 		});
-		btnRelacionados.setBounds(100, 471, 107, 25);
+		btnRelacionados.setBounds(100, 471, 129, 25);
 		getContentPane().add(btnRelacionados);
 		
 		final JComboBox comboPartes = new JComboBox();

@@ -24,15 +24,7 @@
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="4" corner="BOTTOM_RIGHT" language="java" name="controller.MySQL" project="turroseum" 
-    file="/turroseum/sources/controller/MySQL.java" binary="false">    
-    <position height="-1" width="-1" x="517" y="93"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true"/>      
-      <operations public="true" package="true" protected="true" private="true"/>    
-    </display>  
-  </class>  
-  <class id="5" corner="BOTTOM_RIGHT" language="java" name="model.Periodo" project="turroseum" 
+  <class id="4" corner="BOTTOM_RIGHT" language="java" name="model.Periodo" project="turroseum" 
     file="/turroseum/sources/model/Periodo.java" binary="false">    
     <position height="227" width="135" x="510" y="504"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
@@ -40,7 +32,7 @@
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="6" corner="BOTTOM_RIGHT" language="java" name="model.Invento" project="turroseum" 
+  <class id="5" corner="BOTTOM_RIGHT" language="java" name="model.Invento" project="turroseum" 
     file="/turroseum/sources/model/Invento.java" binary="false">    
     <position height="482" width="206" x="783" y="-18"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
@@ -48,7 +40,7 @@
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="7" corner="BOTTOM_RIGHT" language="java" name="model.Parte" project="turroseum" 
+  <class id="6" corner="BOTTOM_RIGHT" language="java" name="model.Parte" project="turroseum" 
     file="/turroseum/sources/model/Parte.java" binary="false">    
     <position height="227" width="155" x="685" y="504"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
@@ -56,7 +48,7 @@
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="8" corner="BOTTOM_RIGHT" language="java" name="model.Inventor" project="turroseum" 
+  <class id="7" corner="BOTTOM_RIGHT" language="java" name="model.Inventor" project="turroseum" 
     file="/turroseum/sources/model/Inventor.java" binary="false">    
     <position height="295" width="135" x="880" y="504"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
@@ -64,62 +56,42 @@
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="9" corner="BOTTOM_RIGHT" language="java" name="model.PrincipioCientifico" project="turroseum" 
-    file="/turroseum/sources/model/PrincipioCientifico.java" binary="false">    
-    <position height="278" width="155" x="1055" y="504"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true"/>      
-      <operations public="true" package="true" protected="true" private="true"/>    
-    </display>  
-  </class>  
-  <association id="10">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="11" name="inventores"/>      
-      <multiplicity id="12" minimum="0" maximum="2147483647"/>    
+  <association id="8">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="9" name="partes"/>      
+      <multiplicity id="10" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="13">    
+  <nesting id="11">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="2"/>  
   </nesting>  
-  <dependency id="14">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
+  <association id="12">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="13" name="periodo"/>      
+      <multiplicity id="14" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <dependency id="15">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="7"/>  
   </dependency>  
   <association id="16">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="17" name="periodo"/>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="19">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="20" name="principios"/>      
-      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="22">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <association id="23">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="24" name="partes"/>      
-      <multiplicity id="25" minimum="0" maximum="2147483647"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="17" name="inventores"/>      
+      <multiplicity id="18" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <dependency id="19">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     visibility="true">    
     <attributes public="true" package="true" protected="true" private="true"/>    

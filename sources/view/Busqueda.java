@@ -24,10 +24,11 @@ import model.SQLHandler;
 
 import org.jdesktop.swingx.autocomplete.*;
 
-import controller.MySQL;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 
@@ -116,6 +117,17 @@ public class Busqueda extends JFrame {
 		JLabel lblTurrogrammersInc = new JLabel("Turrogrammers Inc.");
 		lblTurrogrammersInc.setBounds(619, 455, 147, 23);
 		contentPane.add(lblTurrogrammersInc);
+		
+		JButton btnLogin = new JButton("Login");
+		btnLogin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				new LoginPanel();
+		
+			}
+		});
+		btnLogin.setBounds(673, 0, 100, 25);
+		contentPane.add(btnLogin);
 	}
 	
 
